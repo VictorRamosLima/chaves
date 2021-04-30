@@ -15,7 +15,7 @@ export const Input = ({inputClass, onChange}) => {
       type="text"
       className={inputClass}
       value={value}
-      onChange={() => handleInputChange(e)}
+      onChange={e => handleInputChange(e)}
     />
   )
 }

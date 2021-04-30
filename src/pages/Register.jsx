@@ -1,12 +1,20 @@
+import { withRouter } from 'react-router'
+
 import { useContacts } from '../hooks/useContacts'
 
-import { RegisterForm } from '../components/RegisterForm'
+import { RegistrationForm } from '../components/RegistrationForm'
 
-export const Register = () => {
+const Register = ({history}) => {
   const { addContact } = useContacts()
 
-  return <RegisterForm
-    onClickBackButton={showContactList}
-    onRegister={addContact}
+  const goToContactList = () => history.push('/')
+
+  return <RegistrationForm
+    handleBackButtonClick={goToContactList}
+    handleFormSubmit={addContact}
   />
 }
+
+const RegisterWithRouter = withRouter(Register)
+
+export {RegisterWithRouter as Register}

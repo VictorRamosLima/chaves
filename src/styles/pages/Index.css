@@ -1,0 +1,13 @@
+.add-contact {
+  top: 15px;
+  height: 35px;
+  width: 35px;
+  background: none;
+  background-image: url('../../assets/icons/add.svg');
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  right: 20px;
+  position: absolute;
+  border: 0;
+  outline: none;
+}

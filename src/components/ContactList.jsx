@@ -1,7 +1,9 @@
 import { Contact } from './Contact'
 
+import '../styles/components/ContactList.css'
+
 export const ContactList = ({handleRemoveContact, contacts}) => (
-  <ul>
+  <ul className="contact-list">
     {contacts.map(contact => (
       <Contact
         key={contact.id}

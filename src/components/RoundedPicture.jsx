@@ -1,3 +1,5 @@
+import '../styles/components/RoundedPicture.css'
+
 export const RoundedPicture = ({path}) => (
-  <div className="contato-avatar" style={{ backgroundImage: `url(${path})` }} />
+  <div className="contact-avatar" style={{ backgroundImage: `url(${path})` }} />
 )

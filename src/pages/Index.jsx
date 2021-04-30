@@ -1,17 +1,23 @@
+import { withRouter } from 'react-router'
+
 import { useContacts } from '../hooks/useContacts'
 
 import { ContactList } from '../components/ContactList'
 import { InputWithAction } from '../components/InputWithAction'
 
-export const Index = () => {
+import '../styles/pages/Index.css'
+
+const Index = ({history}) => {
   const { removeContact, filterContacts, filteredContacts } = useContacts()
+
+  const goToRegistrationForm = () => history.push('/cadastro')
 
   return (
     <div>
       <InputWithAction
-        actionClassName="adicionar-contato"
+        actionClassName="add-contact"
         onChange={filterContacts}
-        onClick={showRegister}
+        onClick={goToRegistrationForm}
       />
       <ContactList
         contacts={filteredContacts}
@@ -20,3 +26,7 @@ export const Index = () => {
     </div>
   )
 }
+
+const IndexWithRouter = withRouter(Index)
+
+export {IndexWithRouter as Index}

@@ -2,18 +2,20 @@ import { useState } from 'react'
 
 import { Input } from './Input'
 
-export const RegisterForm = ({onRegister, onClickBackButton}) => {
+import '../styles/components/RegistrationForm.css'
+
+export const RegistrationForm = ({handleFormSubmit, handleBackButtonClick}) => {
   const [name, setName] = useState('')
   const [telephone, setTelephone] = useState('')
   const [picture, setPicture] = useState('')
 
-  handleNameChange = value => setName(value)
-  handleTelephoneChange = value => setTelephone(value)
-  handlePictureChange = value => setPicture(value)
+  const handleNameChange = value => setName(value)
+  const handleTelephoneChange = value => setTelephone(value)
+  const handlePictureChange = value => setPicture(value)
 
   return (
-    <div id="cadastro">
-      <form className="criar-contato-form">
+    <div id="registration">
+      <form className="registration-form">
         <h1>Criar novo contato</h1>
 
         <label>Nome: </label>
@@ -25,13 +27,13 @@ export const RegisterForm = ({onRegister, onClickBackButton}) => {
         <label>Foto: </label>
         <Input onChange={handlePictureChange} />
 
-        <button className="voltar" type="button" onClick={() => onClickBackButton()}>
+        <button className="back" type="button" onClick={handleBackButtonClick}>
           Voltar
         </button>
         <button
-          className="cadastrar"
+          className="submit"
           type="button"
-          onClick={() => onRegister({name, telephone, picture})}
+          onClick={() => handleFormSubmit({name, telephone, picture})}
         >
           Cadastrar
         </button>

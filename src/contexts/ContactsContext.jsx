@@ -2,7 +2,7 @@ import { createContext, useMemo, useState } from 'react'
 
 export const ContactsContext = createContext({})
 
-export const ContactsProvider = ({children, ...rest}) => {
+export const ContactsProvider = ({children}) => {
   const [filter, setFilter] = useState('')
   const [contacts, setContacts] = useState([
     {
@@ -25,14 +25,14 @@ export const ContactsProvider = ({children, ...rest}) => {
     }
   ])
 
-  const filterContacts = incomingFilter => setFilter(incomingFilter)
+  const filterContacts = value => setFilter(value.toLowerCase())
   const removeContact = id => setContacts(contacts.filter(contact => contact.id !== id))
-  const addContact = contact => setCharacters(
+  const addContact = contact => setContacts(
     [...contacts, {id: contacts[contacts.length - 1].id + 1, ...contact}]
   )
 
   const filteredContacts = useMemo(
-    () => contacts.filter(contact => contact.name.indexOf(filter) >= 0),
+    () => contacts.filter(contact => contact.name.toLowerCase().indexOf(filter) >= 0),
     [contacts, filter]
   )
 

@@ -1,0 +1,23 @@
+.registration-form {
+  width: 40%;
+  margin: 0 auto 0 auto;
+}
+
+.registration-form label {
+  display: block;
+}
+
+.registration-form input {
+  display: block;
+  width: 100%;
+}
+
+.registration-form .submit {
+  float: right;
+  width:45%
+}
+
+.registration-form .back {
+  float: left;
+  width:45%
+}

@@ -1,17 +1,17 @@
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
 import { ContactsProvider } from './contexts/ContactsContext'
 
 import { Index } from './pages/Index'
 import { Register } from './pages/Register'
 
-export const App = () => {
-  return (
-    <ContactsProvider>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Index} />
-          <Route path="/cadastro" component={Register} />
-        </Switch>
-      </BrowserRouter>
-    </ContactsProvider>
-  )
-}
+export const App = () => (
+  <ContactsProvider>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Index} />
+        <Route path="/cadastro" exact component={Register} />
+      </Switch>
+    </BrowserRouter>
+  </ContactsProvider>
+)
