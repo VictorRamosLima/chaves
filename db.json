@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Chaves",
+      "telephone": "+52 1234-5671",
+      "picture": "../assets/images/chaves.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Florinda",
+      "telephone": "+55 11 98322-9395",
+      "picture": "../assets/images/florinda.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Nhonho",
+      "telephone": "+55 11 98322-9395",
+      "picture": "../assets/images/nhonho.jpg"
+    }
+  ]
+}

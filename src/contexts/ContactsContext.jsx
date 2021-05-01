@@ -1,38 +1,23 @@
-import { createContext, useMemo, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
+
+import { createContact, deleteContact, fetchContacts } from '../services/api/contacts'
 
 export const ContactsContext = createContext({})
 
 export const ContactsProvider = ({children}) => {
   const [filter, setFilter] = useState('')
-  const [contacts, setContacts] = useState([
-    {
-      id: 1,
-      name: 'Chaves',
-      telephone: '+52 1234-5671',
-      picture: './fotos/chaves.jpg',
-    },
-    {
-      id: 2,
-      name: 'Chiquinha',
-      telephone: '+52 1234-5672',
-      picture: './fotos/chiquinha.jpg',
-    },
-    {
-      id: 3,
-      name: 'Sr. Barriga',
-      telephone: '+52 1234-5673',
-      picture: './fotos/barriga.jpg',
-    }
-  ])
+  const [contacts, setContacts] = useState([])
+
+  const getContacts = () => fetchContacts().then(({data}) => setContacts(data))
+
+  useEffect(() => getContacts(), [])
 
   const filterContacts = value => setFilter(value.toLowerCase())
-  const removeContact = id => setContacts(contacts.filter(contact => contact.id !== id))
-  const addContact = contact => setContacts(
-    [...contacts, {id: contacts[contacts.length - 1].id + 1, ...contact}]
-  )
+  const removeContact = id => deleteContact({id}).then(_ => getContacts())
+  const addContact = contact => createContact(contact).then(_ => getContacts())
 
   const filteredContacts = useMemo(
-    () => contacts.filter(contact => contact.name.toLowerCase().indexOf(filter) >= 0),
+    () => contacts.filter(({name}) => name.toLowerCase().indexOf(filter) >= 0),
     [contacts, filter]
   )
 

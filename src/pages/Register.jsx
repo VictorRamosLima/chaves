@@ -10,7 +10,7 @@ const Register = ({history}) => {
   const goToContactList = () => history.push('/')
 
   return <RegistrationForm
-    handleBackButtonClick={goToContactList}
+    goToContactList={goToContactList}
     handleFormSubmit={addContact}
   />
 }

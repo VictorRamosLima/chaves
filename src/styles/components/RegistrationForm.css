@@ -8,16 +8,50 @@
 }
 
 .registration-form input {
-  display: block;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1rem 1rem;
+  border-radius: 0.8rem;
+  background: white;
+  border: solid 1px #222;
   width: 100%;
+  display: block;
+  transition: all 0.3s;
+  margin-bottom: 1rem;
+  outline: none;
 }
 
 .registration-form .submit {
+  border-radius: 25px;
   float: right;
-  width:45%
+  width: 45%;
+  padding: 16px 32px;
+  color: white;
+  background: #275efe;
+}
+
+.registration-form .submit:hover {
+  border: solid 1px #275efe;
+  background: white;
+  color: #275efe;
 }
 
 .registration-form .back {
+  border-radius: 25px;
   float: left;
-  width:45%
+  width: 45%;
+  padding: 16px 32px;
+  color: white;
+  background: #d0312d;
+}
+
+.registration-form .back:hover {
+  border: solid 1px #d0312d;
+  background: white;
+  color: #d0312d;
+}
+
+.error-message {
+  color: #d0312d;
 }
