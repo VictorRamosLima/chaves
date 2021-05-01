@@ -1,22 +1,28 @@
 {
   "contacts": [
     {
-      "id": 1,
       "name": "Chaves",
-      "telephone": "+52 1234-5671",
-      "picture": "../assets/images/chaves.jpg"
+      "telephone": "+52 21 96587-2158",
+      "picture": "/assets/images/chaves.jpg",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Florinda",
-      "telephone": "+55 11 98322-9395",
-      "picture": "../assets/images/florinda.jpg"
+      "name": "Sr. Barriga",
+      "telephone": "+55 11 98530-5689",
+      "picture": "/assets/images/barriga.jpg",
+      "id": 3
     },
     {
-      "id": 3,
       "name": "Nhonho",
-      "telephone": "+55 11 98322-9395",
-      "picture": "../assets/images/nhonho.jpg"
+      "telephone": "+55 11 95236-7456",
+      "picture": "/assets/images/nhonho.jpg",
+      "id": 4
+    },
+    {
+      "name": "Quico",
+      "telephone": "+58 19 8563-6584",
+      "picture": "/assets/images/quico.jpg",
+      "id": 5
     }
   ]
 }

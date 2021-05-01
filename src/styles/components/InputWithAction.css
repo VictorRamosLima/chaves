@@ -1,7 +1,7 @@
 .search-contacts {
   width: 100%;
   padding: 20px 60px 20px 60px;
-  background-image: url('../../assets/icons/search.svg');
+  background-image: url('../icons/search.svg');
   background-repeat: no-repeat;
   background-position: 20px center;
   background-size: 1.2em;

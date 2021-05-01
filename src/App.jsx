@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import { ContactsProvider } from './contexts/ContactsContext'
+import { ContactsProvider } from './state/ContactsContext'
 
 import { Index } from './pages/Index'
 import { Register } from './pages/Register'

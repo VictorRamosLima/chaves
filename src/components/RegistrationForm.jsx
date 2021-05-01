@@ -1,40 +1,82 @@
-import { useState } from 'react'
+import { useReducer } from 'react'
+import { withRouter } from 'react-router'
 
+import { useContacts } from '../state/ContactsContext'
 import { Input } from './Input'
 
 import '../styles/components/RegistrationForm.css'
 
-export const RegistrationForm = ({handleFormSubmit, goToContactList}) => {
-  const [name, setName] = useState('')
-  const [telephone, setTelephone] = useState('')
-  const [picture, setPicture] = useState('')
+const initialState = {
+  name: '',
+  telephone: '',
+  picture: '',
+  errorMessage: '',
+}
 
-  const [errorMessage, setErrorMessage] = useState('')
-
-  const handleNameChange = value => {
-    setErrorMessage('')
-    setName(value)
+const reducer = (currentState, action) => {
+  switch (action.type) {
+    case 'SET_NAME':
+      return {
+        ...currentState,
+        name: action.payload,
+        errorMessage: '',
+      }
+    case 'SET_TELEPHONE':
+      return {
+        ...currentState,
+        telephone: action.payload,
+        errorMessage: '',
+      }
+    case 'SET_PICTURE':
+      return {
+        ...currentState,
+        picture: action.payload,
+        errorMessage: '',
+      }
+    case 'SET_ERROR_MESSAGE':
+      return {
+        ...currentState,
+        errorMessage: action.payload,
+      }
+    default:
+      return currentState
   }
+}
 
-  const handleTelephoneChange = value => {
-    setErrorMessage('')
-    setTelephone(value)
-  }
+const RegistrationForm = ({history}) => {
+  const { addContact } = useContacts()
+  const [
+    {name, telephone, picture, errorMessage},
+    dispatch
+  ] = useReducer(reducer, initialState)
 
-  const handlePictureChange = value => {
-    setErrorMessage('')
-    setPicture(value)
-  }
+  const goToContactList = () => history.push('/')
+
+  const handleNameChange = value => dispatch({
+    type: 'SET_NAME',
+    payload: value
+  })
+  const handleTelephoneChange = value => dispatch({
+    type: 'SET_TELEPHONE',
+    payload: value
+  })
+  const handlePictureChange = value => dispatch({
+    type: 'SET_PICTURE',
+    payload: value
+  })
 
   const submitForm = () => {
     if (name && telephone && picture) {
-      handleFormSubmit({
+      addContact({
         name,
         telephone,
-        picture: `../assets/images/${picture.toLocaleLowerCase()}.jpg`
+        picture: `/assets/images/${picture.toLocaleLowerCase()}.jpg`
       }).then(goToContactList)
     } else {
-      setErrorMessage('Todos os campos devem ser preenchidos')
+      dispatch({
+        type: 'SET_PICTURE',
+        payload: 'Todos os campos devem ser preenchidos'
+      })
     }
   }
 
@@ -77,3 +119,7 @@ export const RegistrationForm = ({handleFormSubmit, goToContactList}) => {
     </div>
   )
 }
+
+const RegistrationFormWithRouter = withRouter(RegistrationForm)
+
+export {RegistrationFormWithRouter as RegistrationForm}

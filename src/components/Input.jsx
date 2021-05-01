@@ -7,7 +7,7 @@ export const Input = ({inputClass, onChange, label, ...rest}) => {
     const inputValue = e.target.value
 
     setValue(inputValue)
-    onChange(inputValue)
+    if (onChange) onChange(inputValue)
   }
 
   return (
