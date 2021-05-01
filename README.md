@@ -1,4 +1,6 @@
 # Chaves
+![image](https://user-images.githubusercontent.com/46085503/116792448-fd837800-aa96-11eb-8195-a4f01c855908.png)
+
 A contact list of Chaves characters
 
 ## Config
