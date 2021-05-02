@@ -1,7 +1,7 @@
 import { api } from '../api'
 
-export const createContact = ({name, telephone, picture}) => api.post(
+export const createContact = ({name, telephone}) => api.post(
   'contacts',
-  { name, telephone, picture },
+  { name, telephone },
   { headers: { 'Content-Type': 'application/json' } }
 )

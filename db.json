@@ -3,20 +3,25 @@
     {
       "id": 1,
       "name": "Chaves",
-      "telephone": "+52 1234-5671",
-      "picture": "../assets/images/chaves.jpg"
+      "telephone": "+52 1234-5671"
     },
     {
       "id": 2,
       "name": "Florinda",
-      "telephone": "+55 11 98322-9395",
-      "picture": "../assets/images/florinda.jpg"
+      "telephone": "+55 11 98322-9395"
     },
     {
       "id": 3,
       "name": "Nhonho",
-      "telephone": "+55 11 98322-9395",
-      "picture": "../assets/images/nhonho.jpg"
+      "telephone": "+55 11 98322-9395"
+    }
+  ],
+  "pictures": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "url": "url",
+      "deleteUrl": "url"
     }
   ]
 }

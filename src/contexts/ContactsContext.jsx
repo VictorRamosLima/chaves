@@ -1,6 +1,6 @@
 import { createContext, useEffect, useMemo, useState } from 'react'
 
-import { createContact, deleteContact, fetchContacts } from '../services/api/contacts'
+import { createContact, deleteContact } from '../services/use_cases'
 
 export const ContactsContext = createContext({})
 
@@ -8,13 +8,11 @@ export const ContactsProvider = ({children}) => {
   const [filter, setFilter] = useState('')
   const [contacts, setContacts] = useState([])
 
-  const getContacts = () => fetchContacts().then(({data}) => setContacts(data))
-
-  useEffect(() => getContacts(), [])
+  useEffect(() => fetchContacts().then(({data}) => setContacts(data)), [])
 
   const filterContacts = value => setFilter(value.toLowerCase())
-  const removeContact = id => deleteContact({id}).then(_ => getContacts())
-  const addContact = contact => createContact(contact).then(_ => getContacts())
+  const removeContact = id => deleteContact(setContacts)(id)
+  const addContact = contact => createContact(setContacts)(contact)
 
   const filteredContacts = useMemo(
     () => contacts.filter(({name}) => name.toLowerCase().indexOf(filter) >= 0),

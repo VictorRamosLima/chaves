@@ -1,3 +1,3 @@
 import { api } from '../api'
 
-export const fetchContacts = () => api.get('contacts')
+export const fetchContact = () => api.get(`contact/${id}`)
